@@ -18,8 +18,8 @@ def get_price():
     res = requests.get(url, headers=headers, data=payload)
     res_json = res.json()
     return {
-        "time": res_json["timestamp"],
-        "price": res_json["data"]["rateUsd"]
+        "time": int(res_json["timestamp"]),
+        "price": float(res_json["data"]["rateUsd"])
     }
     
 
