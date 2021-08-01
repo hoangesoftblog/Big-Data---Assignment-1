@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  bitcoin:
+    container_name: bitcoin
+    build: .
+    environment:
+      KAFKA_BROKER_URL: broker:9092
+      TOPIC_NAME: bitcoin
+      SLEEP_TIME: 10
+
+networks:
+  default:
+    external:
+      name: kafka-network
